@@ -1,19 +1,109 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Инструкция</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Инструкция по переработке</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Инструкция по изготовлению биоразлагаемого пластика</h1>
-  <ol>
-    <li>Соберите пластиковые отходы.</li>
-    <li>Очистите и измельчите пластик.</li>
-    <li>Добавьте крахмал и глицерин.</li>
-    <li>Нагрейте смесь до 150°C и перемешивайте.</li>
-    <li>Залейте в форму и охладите.</li>
-  </ol>
+<body class="bg-green-50 text-gray-800">
 
-  <a href="/">Назад на главную</a>
+  <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
+    
+    <h1 class="text-3xl font-bold text-green-700 text-center mb-8">Инструкция по переработке</h1>
+    
+    <div class="flex flex-col md:flex-row justify-center gap-6 mb-8">
+      <button onclick="openModal('plastic')" class="w-full md:w-auto bg-green-500 text-white py-3 px-6 rounded-lg shadow hover:bg-green-600 transition">
+        Пластик
+      </button>
+      <button onclick="openModal('tires')" class="w-full md:w-auto bg-green-500 text-white py-3 px-6 rounded-lg shadow hover:bg-green-600 transition">
+        Шины
+      </button>
+      <button onclick="openModal('paper')" class="w-full md:w-auto bg-green-500 text-white py-3 px-6 rounded-lg shadow hover:bg-green-600 transition">
+        Макулатура
+      </button>
+    </div>
+
+    <!-- Кнопка Назад -->
+    <div class="flex justify-center">
+      <a href="/" class="bg-white border border-green-500 text-green-700 py-3 px-6 rounded-lg shadow hover:bg-green-100 transition">
+        ← Назад на главную
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Модальные окна -->
+  <!-- Plastic Modal -->
+  <div id="plastic" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-xl relative p-6">
+      <button onclick="closeModal('plastic')" class="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+      <h2 class="text-xl font-bold text-green-600 mb-4">Переработка пластика</h2>
+      <p class="mb-2">Изготовление биоразлагаемого пластика в домашних условиях:</p>
+      <ul class="list-disc list-inside mb-4 text-gray-700">
+        <li>1 стакан кукурузного крахмала</li>
+        <li>4 ст. ложки воды</li>
+        <li>1 ч. ложка уксуса (6%)</li>
+        <li>1 ч. ложка глицерина</li>
+      </ul>
+      <p><strong>Процесс:</strong> Все ингредиенты смешать и нагревать на медленном огне, помешивая до загустения. Затем выложить массу на плёнку, придать форму и оставить сушиться на 24 часа.</p>
+    </div>
+  </div>
+
+  <!-- Tires Modal -->
+  <div id="tires" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-xl relative p-6">
+      <button onclick="closeModal('tires')" class="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+      <h2 class="text-xl font-bold text-green-600 mb-4">Переработка шин</h2>
+      <p class="font-semibold mb-2">Вариант 1: Мебель из шин</p>
+      <ul class="list-disc list-inside mb-4 text-gray-700">
+        <li>Очистите шину от грязи и остатков резины.</li>
+        <li>Окрасьте её краской для наружных работ.</li>
+        <li>Добавьте подушки и мягкие материалы для создания сидений.</li>
+        <li>Закрепите ножки или используйте шину как столик или кресло.</li>
+      </ul>
+      <p class="font-semibold mb-2">Вариант 2: Резиновая крошка</p>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>Шины измельчаются в крошку с помощью специальных шредеров.</li>
+        <li>Крошка применяется для покрытия площадок, беговых дорожек и в производстве резиновой плитки.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Paper Modal -->
+  <div id="paper" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-xl relative p-6">
+      <button onclick="closeModal('paper')" class="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+      <h2 class="text-xl font-bold text-green-600 mb-4">Переработка макулатуры</h2>
+      <p class="font-semibold mb-2">Вариант: Изоляционный материал</p>
+      <ul class="list-disc list-inside mb-4 text-gray-700">
+        <li>Соберите и отсортируйте бумагу (газеты, картон, офисная бумага).</li>
+        <li>Измельчите бумагу в мелкую фракцию с помощью шредера или вручную в воде.</li>
+        <li>Добавьте антипирены и антисептики.</li>
+        <li>Сформируйте плиты или наполнитель для тепло- и звукоизоляции стен и полов.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    // Закрытие при клике за пределами окна
+    window.addEventListener('click', function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
