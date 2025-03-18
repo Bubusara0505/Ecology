@@ -2,22 +2,57 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Калькулятор пластика</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор переработки</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Калькулятор переработанного пластика</h1>
-  <input type="number" id="plasticInput" placeholder="Введите вес пластика (кг)">
-  <button onclick="calculate()">Рассчитать</button>
-
-  <p id="result"></p>
-
-  <a href="/">Назад на главную</a>
+<body class="bg-green-50 text-gray-800">
+  <div class="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
+    <h1 class="text-2xl font-bold text-green-700 text-center mb-6">Калькулятор переработки</h1>
+    
+    <div class="grid grid-cols-2 gap-6">
+      <div class="bg-green-100 p-4 rounded-lg shadow">
+        <h2 class="text-lg font-semibold text-green-600">Переработка пластика</h2>
+        <input type="number" id="plasticInput" placeholder="Введите вес пластика (кг)" class="w-full p-2 border border-green-300 rounded mt-2">
+        <button onclick="calculatePlastic()" class="w-full bg-green-500 text-white py-2 rounded mt-2 hover:bg-green-600">Рассчитать</button>
+        <p id="result1" class="mt-2 font-semibold"></p>
+      </div>
+      
+      <div class="bg-green-100 p-4 rounded-lg shadow">
+        <h2 class="text-lg font-semibold text-green-600">Переработка шин</h2>
+        <input type="number" id="tires" min="1" value="1" class="w-full p-2 border border-green-300 rounded mt-2">
+        <button onclick="calculateRubberGranules()" class="w-full bg-green-500 text-white py-2 rounded mt-2 hover:bg-green-600">Рассчитать</button>
+        <p id="result2" class="mt-2 font-semibold"></p>
+      </div>
+    </div>
+    
+    <div class="mt-6 mx-auto max-w-md bg-green-100 p-4 rounded-lg shadow">
+      <h2 class="text-lg font-semibold text-green-600 text-center">Переработка макулатуры</h2>
+      <input type="number" id="paper" min="1" value="1" class="w-full p-2 border border-green-300 rounded mt-2">
+      <button onclick="calculateInsulation()" class="w-full bg-green-500 text-white py-2 rounded mt-2 hover:bg-green-600">Рассчитать</button>
+      <p id="result3" class="mt-2 font-semibold text-center"></p>
+    </div>
+    
+    <a href="/" class="block text-center text-green-700 hover:underline mt-6">Назад на главную</a>
+  </div>
 
   <script>
-    function calculate() {
+    function calculatePlastic() {
       const input = document.getElementById('plasticInput').value;
       const meters = input * 0.5;
-      document.getElementById('result').textContent = `Можно построить ${meters.toFixed(2)} метров дороги из этого пластика!`;
+      document.getElementById('result1').textContent = `Можно построить ${meters.toFixed(2)} метров дороги из этого пластика!`;
+    }
+
+    function calculateRubberGranules() {
+      let tires = document.getElementById("tires").value;
+      let rubberGranules = tires * 4.5;
+      document.getElementById("result2").innerText = `Из ${tires} шин получится примерно ${rubberGranules.toFixed(1)} кг резиновой крошки.`;
+    }
+
+    function calculateInsulation() {
+      let paperWeight = document.getElementById("paper").value;
+      let insulationMaterial = paperWeight * 0.9;
+      document.getElementById("result3").innerText = `Из ${paperWeight} кг макулатуры можно получить около ${insulationMaterial.toFixed(1)} кг изоляционных материалов.`;
     }
   </script>
 </body>
