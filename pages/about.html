@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>О проекте</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - Переработка пластика</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".fade-in").forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add("opacity-100", "translate-y-0");
+                }, index * 300);
+            });
+        });
+    </script>
 </head>
-<body>
-  <h1>О проекте</h1>
-  <p>Этот проект направлен на переработку пластиковых отходов и их повторное использование в полезных целях, например, для строительства дорог и создания биоразлагаемых материалов.</p>
-  
-  <a href="/">Назад на главную</a>
+<body class="bg-green-50 text-gray-800">
+    <header class="bg-green-200 p-6 text-center text-xl font-bold">Переработка пластиковых отходов</header>
+    
+    <main class="p-6 max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="fade-in opacity-0 transform translate-y-10 p-6 bg-green-100 rounded-xl shadow-lg">
+                <h2 class="text-lg font-semibold mb-2">Наша цель</h2>
+                <p>Мы стремимся сократить пластиковые отходы, превращая их в полезные материалы для строительства, экологии и промышленности.</p>
+            </div>
+            <div class="fade-in opacity-0 transform translate-y-10 p-6 bg-green-100 rounded-xl shadow-lg">
+                <h2 class="text-lg font-semibold mb-2">Способы переработки</h2>
+                <ul class="list-disc list-inside">
+                    <li>Механическая переработка</li>
+                    <li>Химическая переработка</li>
+                    <li>Пиролиз</li>
+                </ul>
+            </div>
+            <div class="fade-in opacity-0 transform translate-y-10 p-6 bg-green-100 rounded-xl shadow-lg">
+                <h2 class="text-lg font-semibold mb-2">Где используется переработанный пластик?</h2>
+                <ul class="list-disc list-inside">
+                    <li>Строительство дорог</li>
+                    <li>Биопластик</li>
+                    <li>Строительные блоки</li>
+                    <li>Одежда и аксессуары</li>
+                </ul>
+            </div>
+            <div class="fade-in opacity-0 transform translate-y-10 p-6 bg-green-100 rounded-xl shadow-lg">
+                <h2 class="text-lg font-semibold mb-2">Преимущества проекта</h2>
+                <ul class="list-disc list-inside">
+                    <li>Снижение загрязнения</li>
+                    <li>Экономическая выгода</li>
+                    <li>Создание рабочих мест</li>
+                    <li>Развитие технологий</li>
+                </ul>
+            </div>
+        </div>
+          <div class="mt-10 text-center ">
+          <a href="/" class="bg-white border border-green-500 text-green-700 py-3 px-6 rounded-lg shadow hover:bg-green-100 transition">Назад на главную</a>
+          </div>
+      </main>
+    
+    <footer class="text-center p-4 bg-green-200 mt-6">© 2025 Переработка пластика | Все права защищены</footer>
 </body>
 </html>
+
