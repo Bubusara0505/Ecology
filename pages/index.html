@@ -1,37 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Экопластик - Главная</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #00c3ff, #ffff1c);
+      min-height: 100vh;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px;
+      background: #008080;
+      color: white;
+      text-align: center;
+    }
+
+    .slogan {
+      font-size: 32px;
+      margin: 40px 20px 20px;
+      color: #008080;
+      text-align: center;
+      font-weight: bold;
+      animation: fadeIn 2s ease;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #ffffff;
+      width: 280px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h2 {
+      margin-bottom: 15px;
+      color: #008080;
+      font-size: 22px;
+    }
+
+    .card p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .footer-btn {
+      margin-top: 40px;
+      padding: 15px 40px;
+      background: #008080;
+      color: #fff;
+      border-radius: 50px;
+      font-size: 18px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .footer-btn:hover {
+      background: #00a4a4;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    <h1>All Methods for Helping Ecology</h1>
-    <div class="cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-        {% for card in cards %}
-        <div class="card" onclick="openModal('modal{{ loop.index }}')">
-            <h2>{{ card.title }}</h2>
-        </div>
-        
-        <div id="modal{{ loop.index }}" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('modal{{ loop.index }}')">&times;</span>
-                <p>{{ card.description }}</p>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-    <a href="{{ url_for('records') }}">Create New Post</a>
-    
-    <script>
-        function openModal(id) {
-            document.getElementById(id).style.display = 'flex';
-        }
-        function closeModal(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-    </script>
+
+  <header>
+    <h1>ЭКОПЛАСТИК</h1>
+  </header>
+
+  <h2 class="slogan">Дадим вторую жизнь пластику!</h2>
+
+  <div class="container">
+    <a href="/about">
+      <div class="card" onclick="openPage('./about.html')">
+        <h2>О проекте</h2>
+        <p>Узнайте, зачем перерабатывать пластик и как мы можем изменить мир.</p>
+      </div>
+    </a>
+
+    <a href="/instruction">
+      <div class="card" onclick="openPage('./instruction.html')">
+        <h2>Инструкция</h2>
+        <p>Пошаговое руководство по созданию биоразлагаемого пластика дома.</p>
+      </div>
+    </a>
+
+    <a href="/calculator">
+      <div class="card" onclick="openPage('./calculator.html')">
+        <h2>Калькулятор</h2>
+        <p>Рассчитайте, сколько переработанного пластика пригодится для строительства дорог.</p>
+      </div>
+    </a>
+  </div>
+
+  <a href="#" class="footer-btn">Присоединиться к проекту</a>
+
+  <script>
+    function openPage(page) {
+      document.body.style.opacity = 0;
+      setTimeout(() => window.location.href = page, 300);
+    }
+  </script>
+
 </body>
 </html>

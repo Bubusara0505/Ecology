@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Калькулятор пластика</title>
+</head>
+<body>
+  <h1>Калькулятор переработанного пластика</h1>
+  <input type="number" id="plasticInput" placeholder="Введите вес пластика (кг)">
+  <button onclick="calculate()">Рассчитать</button>
+
+  <p id="result"></p>
+
+  <a href="/">Назад на главную</a>
+
+  <script>
+    function calculate() {
+      const input = document.getElementById('plasticInput').value;
+      const meters = input * 0.5;
+      document.getElementById('result').textContent = `Можно построить ${meters.toFixed(2)} метров дороги из этого пластика!`;
+    }
+  </script>
+</body>
+</html>

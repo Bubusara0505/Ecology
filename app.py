@@ -38,5 +38,20 @@ def records():
                     cards.append({'title': title, 'description': description})
     return render_template('records.html', cards=cards)
 
+@app.route('/instruction')
+def instruction():
+    return render_template('instruction.html')
+
+# Калькулятор переработки пластика
+@app.route('/calculator')
+def calculator():
+    return render_template('calculator.html')
+
+# О проекте
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
