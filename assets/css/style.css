@@ -40,6 +40,10 @@
     margin-top: 30px;
   }
 
+  .container a{
+    text-decoration: none;
+  }
+
   .card {
     background: #ffffff;
     width: 280px;
@@ -49,6 +53,8 @@
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none; /* Убирает подчеркивание */
+    color: inherit; /* Наследует цвет текста */
   }
 
   .card:hover {
@@ -60,6 +66,10 @@
     margin-bottom: 15px;
     color: #008080;
     font-size: 22px;
+  }
+
+  .link a{
+    text-decoration: none;
   }
 
   .card p {
